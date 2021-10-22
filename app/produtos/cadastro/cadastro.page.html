@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Cadastro de Produtos</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form #produtoForm="ngForm" (ngSubmit)="salvar()">
+        <ion-item>
+            <ion-label position="floating">Nome</ion-label>
+            <ion-input [(ngModel)]="produto.nome" type="text" autofocus="true" name="nome" required minlength="3"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Fornecedor</ion-label>
+            <ion-select [(ngModel)]="produto.fornecedores" [compareWith]="compareWith" multiple="true" ok-text="Ok" cancel-text="Cancelar" name="fornecedores">
+                <ion-select-option *ngFor="let fornecedor of fornecedores" [value]="fornecedor">
+                    {{fornecedor.nome}}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">
+                Preço
+            </ion-label>
+            <ion-input [(ngModel)]="produto.preco" type="number" placeholder="R$ 0,00" name="preco"></ion-input>
+        </ion-item>
+
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-fab-button [disabled]="produtoForm.form.invalid" (click)="salvar()">
+                <ion-icon name="checkmark"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
+    </form>
+</ion-content>

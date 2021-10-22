@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Cadastro de Fornecedores</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form #fornecedorForm="ngForm" (ngSubmit)="salvar()">
+        <ion-item>
+            <ion-label position="floating">Nome *:</ion-label>
+            <ion-input type="text" required minlength="5" id="nome" name="nome" [(ngModel)]="fornecedor.nome" autofocus="true"></ion-input>
+        </ion-item>
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-fab-button type="submit" [disabled]="fornecedorForm.form.invalid" (click)="salvar()">
+                <ion-icon name="checkmark"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
+    </form>
+</ion-content>

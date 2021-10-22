@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            Loja Tal
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list lines="none">
+        <ion-item [routerLink]="['/produtos']">
+            <ion-icon slot="start" name="shirt"></ion-icon>
+            <ion-label>Produtos</ion-label>
+        </ion-item>
+        <ion-item [routerLink]="['/fornecedores']">
+            <ion-icon slot="start" name="person"></ion-icon>
+            <ion-label>Fornecedores</ion-label>
+        </ion-item>
+    </ion-list>
+</ion-content>
